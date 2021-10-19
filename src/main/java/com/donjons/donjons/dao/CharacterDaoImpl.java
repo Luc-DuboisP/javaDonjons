@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CharacterDaoImplement implements CharacterDao {
+public class CharacterDaoImpl implements CharacterDao {
 
     public static List<Character> characters = new ArrayList<>();
 
@@ -21,19 +21,29 @@ public class CharacterDaoImplement implements CharacterDao {
 
     @Override
     public List<Character> findAll() {
-
         return characters;
     }
 
     @Override
     public Character findById(int id) {
-
+        for (Character character : characters) {
+            if(character.getId() == id){
+                return character;
+            }
+        }
         return null;
     }
 
     @Override
     public Character save(Character character) {
-
-        return null;
+        characters.add(character);
+        return character;
     }
+
+    @Override
+    public void deleteById(int id) {
+        Character character =
+        characters.remove(id);
+    }
+
 }

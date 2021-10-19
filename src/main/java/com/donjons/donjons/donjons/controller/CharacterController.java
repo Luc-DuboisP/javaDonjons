@@ -25,8 +25,19 @@ public class CharacterController {
         return characterDao.findById(id);
     }
 
-    @GetMapping()
+    @PostMapping()
     public void addCharacter(@RequestBody Character character) {
+        characterDao.save(character);
+    }
+
+    @DeleteMapping()
+    public void deleteCharacter(@PathVariable int id) {
+        characterDao.deleteById(id);
+    }
+
+    @PutMapping()
+    public void updateCharacter(@RequestBody Character character, @PathVariable int id) {
+        
         characterDao.save(character);
     }
 
