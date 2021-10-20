@@ -21,7 +21,7 @@ public class CharacterController {
     }
 
     @GetMapping("/{id}")
-    public  Character showCharacter(@PathVariable int id) {
+    public Character showCharacter(@PathVariable int id) {
         return characterDao.findById(id);
     }
 
@@ -30,15 +30,9 @@ public class CharacterController {
         characterDao.save(character);
     }
 
-    @DeleteMapping()
+    @DeleteMapping("/{id}")
     public void deleteCharacter(@PathVariable int id) {
         characterDao.deleteById(id);
-    }
-
-    @PutMapping()
-    public void updateCharacter(@RequestBody Character character, @PathVariable int id) {
-        
-        characterDao.save(character);
     }
 
 }

@@ -42,7 +42,6 @@ public class CharacterDaoImpl implements CharacterDao {
 
     @Override
     public void deleteById(int id) {
-        Character character =
         characters.remove(id);
     }
 
